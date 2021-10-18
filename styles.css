@@ -1,0 +1,118 @@
+body {
+  margin: 0px;
+}
+
+header {
+  background-color: #6699ff;
+  font-family: 'Merriweather', serif;
+  color: white;
+  padding: 10px 50px;
+  margin: 0px;
+}
+
+header:hover {
+  color: darkblue;
+  cursor: pointer;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.blue {
+  font-family: 'Open Sans', sans-serif;
+  color: #6699ff;
+}
+
+.item {
+  font-weight: bold;
+  color: gray
+  margin: 25px;
+  padding: 10px;
+  text-align: center;
+  border: 3px solid darkblue;
+  margin: 10px;
+}
+
+.item:hover {
+  color: #6699ff;;
+}
+
+.price {
+  color: #6699ff;
+}
+
+.cart {
+  font-style: bold;
+  color: darkblue;
+  margin: 25px;
+  padding: 10px;
+  text-align: center;
+  border: 3px solid darkblue;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+#totalcost {
+  background-color: #6699ff;
+  font-family: 'Merriweather', serif;
+  color: white;
+  margin: 10px;
+  padding: 1rem;
+}
+
+.section {
+  font-style: bold;
+  color: darkblue;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: 3px solid darkblue;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  background-color: #6699ff;
+  font-family: 'Merriweather', serif;
+  color: white;
+  font-size: x-small;
+  margin: 0px;
+  padding: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row
+  justify-content: space-evenly;
+  justify-content: center;
+}
+
+button {
+  background-color: darkblue;
+  color: white;
+}
+
+.checkout {
+  background-color: blue;
+  color: white;
+  margin: 10px;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.checkout:hover {
+  background-color: darkblue;
+  color: white;
+  cursor: pointer;
+}
+
+
+button:hover {
+  background-color: #6699ff;
+  color: white;
+  cursor: pointer;
+}
+
