@@ -38,9 +38,7 @@ class Shop {
 
   render() {
     let productsHtml = this.products.map( product => product.toHTML())
-    const productsContainer = document.querySelector("#products-list")
-    const productsHtmlString = productsHtml.join(" ")
-    productsContainer.innerHTML = productsHtmlString
+    document.querySelector("#products-list").innerHTML = productsHtml.join(" ")
   }
 }
 
