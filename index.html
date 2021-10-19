@@ -1,100 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  
   <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Nate's Shop</title>
-    <link rel="stylesheet" href="shopping.css">
+    <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans" rel="stylesheet">
-  
   </head>
   
   <body>
-    
-      <!--this is the header-->
-      
-      <header class="header">
+    <!--this is the header-->
+    <header class="header">
+      <h1 class="bold">Welcome to the Fake Store</h1>
+      <h4>Where everthing is made up and the html doesn't matter</h4>
+    </header>
         
-        <h1 class="bold">
-          
-          Welcome to the Fake Store
-          
-        </h1>
-      
-        <h4>
-          
-          Where everthing is made up and the html doesn't matter
-          
-        </h4>
-        
-        
-      </header>
-      
-  <div class="content">
-      
+    <div class="content">
       <!--this is the items for sale block-->
-      
-    <div id="products-list" class=section>
-      <h2>Loading products...</h2>
-    </div>
-      
-    <!--ites for sale div closed, now the cart -->
-      
-    <div class="section">
-      
-      <div class="cart">
-      
-      <h2>
-        
-        your cart
-        
-      </h2>
-        
-      <div id="cartitems">
-        
-        ~items will go here~
-        
+      <div id="products-list" class=section>
+        <h2>Loading products...</h2>
       </div>
         
-    </div>
-    
-    <div>
+      <!--ites for sale div closed, now the cart -->
+      <div class="section">
+        <div class="cart">
+        <h2>
+          your cart
+        </h2>
+        <div id="cartitems">
+          ~items will go here~
+        </div>
+      </div>
+      
+      <div>
+        <h2>your total is</h2>
+        <div id="totalcost">
+          $0
+        </div>
+      </div>
           
-      <h2> your total is</h2>
-      
-      <div id="totalcost">
-        
-        $0
-        
-      </div>
-      
-    </div>
-        
       <button class=checkout>
-        
         checkout
-        
       </button>
-        
+          
     </div>
-  
-  
-  </div>
-      
     <!--footer-->
-    
-    <footer>
+    <footer>Copyright 2021</footer>
       
-      Copyright 2021
-      
-    </footer>
-    
-    
-	<script src="activelist.js"></script>
-	
+    <script src="index.js"></script>
   </body>
   
 </html>
