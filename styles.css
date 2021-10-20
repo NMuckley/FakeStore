@@ -83,7 +83,6 @@ header:hover {
   flex-direction: row;
   flex-wrap: wrap;
   flex-basis: 60%;
-  max-height: 375px;
 }
 
 footer {
@@ -95,7 +94,6 @@ footer {
   font-size: x-small;
   margin-top: 50px;
   padding: 10px;
-  bottom: 0px;
 }
 
 .content {
