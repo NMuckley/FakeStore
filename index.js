@@ -21,8 +21,9 @@ class Product {
     <div class="item">
       <p>${this.name}</p>
       <p class="price">$${this.price}</p>
+      <button id="removal">remove item</button>
     </div>
-    `
+   `
   }
   
   nameToID() {
@@ -44,7 +45,16 @@ class Cart {
   addProduct(product) {
     this.products.push(product)
     this.render()
-    
+  }
+  
+  
+  removeItemClick() {
+    document.getElementById("removal").addEventListener("click", this.itemR() )
+  }
+  
+  itemR() {
+    console.log("removed")
+  
   }
 
   render() {
@@ -52,6 +62,8 @@ class Cart {
     const productsContainer = document.querySelector("#cartitems")
     const productsHtmlString = productsHtml.join(" ")
     productsContainer.innerHTML = productsHtmlString
+    
+    document.getElementById("removal").addEventListener("click", this.removeItemClick )
     
     const totalCostContainer = document.querySelector("#totalcost")
     totalCostContainer.innerHTML = `$${this.totalCost()}`
@@ -61,6 +73,7 @@ class Cart {
     let productPrices = this.products.map( product => product.price)
     return productPrices.reduce((total, num) => { return total + num }, 0)
   }
+
 
 }
 
@@ -102,7 +115,10 @@ class Shop {
   addToCartHandler(name, price) {
     this.cart.addProduct(new Product(name, price, () => {} ))
   }
+  
+  readyClick() {
+    this.cart.removalClick
+  }
 }
 
 const shop = new Shop()
-
