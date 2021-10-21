@@ -21,7 +21,6 @@ class Product {
     <div class="item">
       <p>${this.name}</p>
       <p class="price">$${this.price}</p>
-      <button id="removal">remove item</button>
     </div>
    `
   }
@@ -30,8 +29,11 @@ class Product {
     return this.name.toLowerCase().replaceAll(" ", "-")
   }
   
-  addClickHandler() {
-    document.getElementById(this.nameToID()).addEventListener("click", () => this.handler(this.name, this.price) )
+  addClickHandlers() {
+    const addButton = document.getElementById(this.nameToID())
+    if (addButton) {
+      addButton.addEventListener("click", () => this.handler(this.name, this.price) )
+    }
   }
   
 }
@@ -40,21 +42,14 @@ class Product {
 class Cart {
   constructor() {
     this.products = []
+    this.removalArray = []
   }
   
   addProduct(product) {
     this.products.push(product)
     this.render()
-  }
-  
-  
-  removeItemClick() {
-    document.getElementById("removal").addEventListener("click", this.itemR() )
-  }
-  
-  itemR() {
-    console.log("removed")
-  
+    
+    document.querySelector("#cartitems").addEventListener("click", () => alert("hahaha"))
   }
 
   render() {
@@ -62,8 +57,6 @@ class Cart {
     const productsContainer = document.querySelector("#cartitems")
     const productsHtmlString = productsHtml.join(" ")
     productsContainer.innerHTML = productsHtmlString
-    
-    document.getElementById("removal").addEventListener("click", this.removeItemClick )
     
     const totalCostContainer = document.querySelector("#totalcost")
     totalCostContainer.innerHTML = `$${this.totalCost()}`
@@ -74,6 +67,9 @@ class Cart {
     return productPrices.reduce((total, num) => { return total + num }, 0)
   }
 
+  removeItemFromCart(item) {
+
+  }
 
 }
 
@@ -109,16 +105,13 @@ class Shop {
   }
   
   addProductHandlers() {
-    this.products.forEach( product => product.addClickHandler() )
+    this.products.forEach( product => product.addClickHandlers() )
   }
   
   addToCartHandler(name, price) {
     this.cart.addProduct(new Product(name, price, () => {} ))
   }
   
-  readyClick() {
-    this.cart.removalClick
-  }
 }
 
 const shop = new Shop()
