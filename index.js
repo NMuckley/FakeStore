@@ -21,6 +21,7 @@ class Product {
     <div class="item">
       <p>${this.name}</p>
       <p class="price">$${this.price}</p>
+      <button id="${this.nameToID() + "-remove"}">add to cart</button>
     </div>
    `
   }
@@ -48,15 +49,21 @@ class Cart {
   addProduct(product) {
     this.products.push(product)
     this.render()
-    
-    document.querySelector("#cartitems").addEventListener("click", () => alert("hahaha"))
   }
 
   render() {
+    // maybe find duplicates here and add number
     let productsHtml = this.products.map( product => product.toCartHTML())
     const productsContainer = document.querySelector("#cartitems")
     const productsHtmlString = productsHtml.join(" ")
     productsContainer.innerHTML = productsHtmlString
+
+    this.products.forEach( (product, index, array) => {
+      document.getElementById(product.nameToID() + "-remove").addEventListener("click", () => {
+        array.splice(index, 1)
+        this.render()
+      })
+    })
     
     const totalCostContainer = document.querySelector("#totalcost")
     totalCostContainer.innerHTML = `$${this.totalCost()}`
