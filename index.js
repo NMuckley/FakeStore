@@ -4,6 +4,7 @@ class Product {
     this.name = name
     this.price = price
     this.handler = handler
+    this.time = Date.now()
   }
 
   toHTML() {
@@ -18,16 +19,21 @@ class Product {
     
   toCartHTML() {
     return `
-    <div class="item">
+    <div class="cart-item">
       <p>${this.name}</p>
       <p class="price">$${this.price}</p>
-      <button id="${this.nameToID() + "-remove"}">add to cart</button>
+      <p hidden>"${this.time}"</p>
+      <button id="${this.time}">remove</button>
     </div>
    `
   }
   
   nameToID() {
     return this.name.toLowerCase().replaceAll(" ", "-")
+  }
+  
+  itemTime() {
+    return this.time
   }
   
   addClickHandlers() {
@@ -43,27 +49,31 @@ class Product {
 class Cart {
   constructor() {
     this.products = []
-    this.removalArray = []
   }
   
   addProduct(product) {
+    console.log(product)
     this.products.push(product)
     this.render()
   }
 
   render() {
     // maybe find duplicates here and add number
+    
     let productsHtml = this.products.map( product => product.toCartHTML())
     const productsContainer = document.querySelector("#cartitems")
     const productsHtmlString = productsHtml.join(" ")
     productsContainer.innerHTML = productsHtmlString
 
     this.products.forEach( (product, index, array) => {
-      document.getElementById(product.nameToID() + "-remove").addEventListener("click", () => {
+      document.getElementById(product.time).addEventListener("click", () => {
         array.splice(index, 1)
         this.render()
+        
+        
       })
     })
+    
     
     const totalCostContainer = document.querySelector("#totalcost")
     totalCostContainer.innerHTML = `$${this.totalCost()}`
